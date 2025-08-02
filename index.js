@@ -28,17 +28,14 @@ app.get('/', (req, res) => {
 
 app.post('/mensaje', async (req, res) => {
   const { nombre, mensaje } = req.body;
-  console.log("📩 Llega POST:", nombre, mensaje); // <-- Esto
   try {
     const nuevo = new Mensaje({ nombre, mensaje });
     await nuevo.save();
     res.status(201).json({ ok: true, mensaje: "Mensaje guardado" });
   } catch (err) {
-    console.error("❌ Error guardando en Mongo:", err.message);
     res.status(500).json({ ok: false, error: err.message });
   }
 });
-
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
