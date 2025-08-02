@@ -13,6 +13,12 @@ mongoose.connect(process.env.MONGO_URI, {
   useUnifiedTopology: true
 }).then(() => console.log("✅ Conectado a MongoDB Atlas"))
   .catch(err => console.error("❌ Error en conexión Mongo:", err));
+  
+  
+// Revisar si toma la uri de mongo (borrar despues)
+
+console.log("MONGO_URI:", process.env.MONGO_URI);
+
 
 // Definir modelo
 const Mensaje = mongoose.model('Mensaje', {
