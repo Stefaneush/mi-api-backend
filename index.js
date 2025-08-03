@@ -5,15 +5,7 @@ const mongoose = require('mongoose');
 
 const app = express();
 
-const corsOptions = {
-  origin: '*', // Podés restringir a tu dominio Firebase si querés
-  methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type'],
-};
-
-app.use(cors(corsOptions));
-
-
+app.use(cors({ origin: '*', methods: ['GET', 'POST'] }));
 
 app.use(express.json());
 
