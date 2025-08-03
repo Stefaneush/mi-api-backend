@@ -4,7 +4,17 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 
 const app = express();
-app.use(cors());
+
+const corsOptions = {
+  origin: '*', // Podés restringir a tu dominio Firebase si querés
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type'],
+};
+
+app.use(cors(corsOptions));
+
+
+
 app.use(express.json());
 
 // Conexión a MongoDB Atlas
